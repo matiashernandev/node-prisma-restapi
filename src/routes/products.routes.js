@@ -15,6 +15,9 @@ router.get("/product/:id", async (req, res) => {
       //id: parseInt(req.params.id),
       id: +req.params.id,
     },
+    include: {
+      categoty: true,
+    },
   })
 
   if (!productFound) return res.status(400).json({ error: "Product not found" })
